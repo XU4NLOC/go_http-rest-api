@@ -33,7 +33,7 @@ func Connect() {
 
 func createTables() {
 	accountTable := `
-	CREATE TABLE IF NOT EXISTED accounts (
+	CREATE TABLE IF NOT EXISTS accounts (
 		id					SERIAL PRIMARY KEY,
 		name				TEXT NOT NULL,
 		type				TEXT NOT NULL CHECK (type IN ('cash', 'bank', 'credit')),
