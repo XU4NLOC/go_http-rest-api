@@ -9,42 +9,45 @@ import (
 func Setup() http.Handler {
 	mux := http.NewServeMux()
 
+	// Account routes
 	mux.HandleFunc("/accounts", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
 			handlers.GetAccounts(w, r)
 		case http.MethodPost:
-			handlers.CreateAccounts(w, r)
+			handlers.CreateAccount(w, r)
 		default:
-			http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
 
 	mux.HandleFunc("/accounts/", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
-			handlers.GetAccounts(w, r)
+			handlers.GetAccount(w, r)
 		case http.MethodDelete:
 			handlers.DeleteAccount(w, r)
 		}
 	})
 
+	// Transaction routes
 	mux.HandleFunc("/accounts/{id}/transactions", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
 			handlers.GetTransactions(w, r)
 		case http.MethodPost:
-			handlers.CreateTransactions(w, r)
+			handlers.CreateTransaction(w, r)
 		default:
-			http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
 
+	// Summary route
 	mux.HandleFunc("/accounts/{id}/summary", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodGet {
 			handlers.GetSummary(w, r)
 		} else {
-			http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
 
