@@ -156,5 +156,5 @@ The API enforces the following rules:
 
 Second project in my Go learning path, focused on backend engineering. This project covers database/sql, connection management, SQL aggregations, JSON encoding, manual HTTP routing, and input validation — all without reaching for a framework.
 
-Previous: [taskmanager](https://github.com/yourusername/taskmanager) — CLI task manager built with Cobra.
+Previous: [taskmanager](https://github.com/XU4NLOC/taskmanager.git) — CLI task manager built with Cobra.
 Next: Port scanner using goroutines and channels.
